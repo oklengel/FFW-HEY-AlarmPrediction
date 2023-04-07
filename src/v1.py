@@ -25,9 +25,9 @@ text_clf = Pipeline([
 ])
 
 # Training und Testen des Modells
-X_train, X_test, y_train, y_test = train_test_split(df['datum'], df['einsatz'], test_size=0.2)
+X_train, X_test, y_train, y_test = train_test_split(df['datum'], df['einsatz'], test_size=0.4)
 text_clf.fit(X_train, y_train)
-print(text_clf.score(X_test, y_test))
+print("Score:" + str(text_clf.score(X_test, y_test)))
 
 # Vorhersagefunktion
 def get_possible_times(date):
@@ -42,11 +42,11 @@ def get_possible_times(date):
         result[f'{hour}:{minute:02d}'] = p
     return result
 
-def predict_next_5_days():
+def predict_next_14_days():
     today = datetime.today()
     today.strftime("%d/%m/%Y ")
     predictions_list = []
-    for i in range(5):
+    for i in range(14):
         date = today + timedelta(days=i)
         print(f'Vorhersage {date.strftime("%d.%m.%Y")}:')
         times = get_possible_times(date)
@@ -60,27 +60,5 @@ def predict_next_5_days():
         predictions_list.append(datarow)
     return predictions_list
 
-               
+predict_next_14_days()
 
-#predictions = 
-predict_next_5_days()
-#for i, date in enumerate(pd.date_range('today', periods=5)):
-    #print(f"Vorhersage {date.strftime('%d.%m.%Y')}: {predictions[i]}")
-
-
-#Kontrolle
-'''
-def predict_multiple(num_predictions):
-    predictions_list = []
-    for i in range(num_predictions):
-        date = pd.Timestamp.now() + pd.Timedelta(minutes=2) + pd.Timedelta(seconds=np.random.randint(1, 180))
-        predictions = predict_next_5_days()
-        for prediction in predictions:
-            datarow = [i] + prediction
-            predictions_list.append(datarow)
-    df = pd.DataFrame(predictions_list, columns=['id', 'datum', 'einsatzwahrscheinlichkeit_0', 'einsatzwahrscheinlichkeit_1', 'einsatzwahrscheinlichkeit_2', 'einsatzwahrscheinlichkeit_3', 'einsatzwahrscheinlichkeit_4', 'einsatzwahrscheinlichkeit_5', 'einsatzwahrscheinlichkeit_6', 'einsatzwahrscheinlichkeit_7', 'einsatzwahrscheinlichkeit_8', 'einsatzwahrscheinlichkeit_9', 'einsatzwahrscheinlichkeit_10', 'einsatzwahrscheinlichkeit_11', 'einsatzwahrscheinlichkeit_12', 'einsatzwahrscheinlichkeit_13', 'einsatzwahrscheinlichkeit_14', 'einsatzwahrscheinlichkeit_15', 'einsatzwahrscheinlichkeit_16', 'einsatzwahrscheinlichkeit_17', 'einsatzwahrscheinlichkeit_18', 'einsatzwahrscheinlichkeit_19', 'einsatzwahrscheinlichkeit_20', 'einsatzwahrscheinlichkeit_21', 'einsatzwahrscheinlichkeit_22', 'einsatzwahrscheinlichkeit_23'])
-    df.to_csv('predictions.csv')
-
-
-predict_multiple(10000)
-'''
