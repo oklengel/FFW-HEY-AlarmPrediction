@@ -7,5 +7,6 @@ Echte Einsatzdaten sind und bleiben unter Verschluss.
 
 Momentan stützt sich die Vorhersage nur auf das Datum. Die Vorhersage einer Uhrzeit wird zu ungenau, die Uhrzweit hat auch Einfluss auf den Einsatztyp. Eine Implementierung von Wetterdaten spielt noch keine Rolle, da abgesehen von Unwettern, welche sich nicht vorhersehen lassen, das Wetter auf Einsätze kaum Einfluss hat. Zumindest nach der Statistik.
 
-Ergebniss:
-Mit zihmlich hoher Präzesion werden Nachbarwehren Alamiert, wenn der Algorithmus eine Einsatzwahrscheinlichkeit von mehr als 60% angibt. Für uns hat das noch nicht korrekt funktioniert. Dies liegt auch an dem Einsatztyp und der Schwere des Einsatzes. 
+Ergebnisse:
+
+Mit ziemlich hoher Präzession werden Nachbarwehren alarmiert, wenn der Algorithmus eine Einsatzwahrscheinlichkeit von mehr als 60 % angibt. Für uns hat das noch nicht korrekt funktioniert. Dies liegt auch an dem Einsatztyp und der Schwere des Einsatzes.
