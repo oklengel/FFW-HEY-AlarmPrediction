@@ -25,7 +25,7 @@ text_clf = Pipeline([
 ])
 
 # Training und Testen des Modells
-X_train, X_test, y_train, y_test = train_test_split(df['datum'], df['einsatz'], test_size=0.4)
+X_train, X_test, y_train, y_test = train_test_split(df['datum'], df['einsatz'], test_size=0.3)
 text_clf.fit(X_train, y_train)
 print("Score:" + str(text_clf.score(X_test, y_test)))
 
